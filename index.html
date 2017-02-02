@@ -42,31 +42,54 @@
 			background: #00B6BF;
 			text-align: center;
 			padding: 1px;
+			clear: both;
 		}
 
 		button {
-		   background-color: #4CAF50; /* Green */
-		   border: none;
-		   color: white;
-		   padding: 15px 32px;
-		   text-align: center;
-		   text-decoration: none;
-		   display: inline-block;
-		   font-size: 16px;
+			   background-color: #4CAF50; /* Green */
+			   border: none;
+			   color: white;
+			   padding: 15px 32px;
+			   text-align: center;
+			   text-decoration: none;
+			   display: inline-block;
+			   font-size: 16px;
 		}
 
 		.container{
-			width: 70%;
-			padding: 15px;
+			width: 75%;
 			margin-left: auto;
-			background: yellow;
+			/*background: yellow;*/
 		}
 
 		.sidebar{
-			width: 23%;
-			text-align: center;
-			background: red;
+			width: 17%;
+			padding-top: 3%;
+			padding-left: 7%;
+			text-align: left;
+			/*background: red;*/
 			float: left;
+		}
+
+		.card{
+			width: 30%;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			padding: 2px 16px 10px;
+			border-radius: 5px;
+			text-align: center;
+			float: left;
+		}
+
+		button{
+			width: 100%;
+			background-color: #4CAF50;
+			border-radius: 5px;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
 		}
 	</style>
 </head>
@@ -87,27 +110,43 @@
 
 	<!-- Sidebar -->
 	<div class="sidebar">
-		<p>Testing</p>
+		<table>
+			<tr><td><a href="#">Semua Kategori</a></td></tr>
+			<tr><td><a href="#">DVD</a></td></tr>
+			<tr><td><a href="#">Storage</a></td></tr>
+			<tr><td><a href="#">RAM</a></td></tr>
+			<tr><td><a href="#">CPU</a></td></tr>
+		</table>
 	</div>
 	<!-- End Sside -->
 
 	<!-- Konten -->
 	<div class="container">
-		<h3>Belanja dengan Kenikmatan</h3>
-		<table>
-			<tr>
-				<td>
-					<p>Monitor</p>
-					<p>Harga :</p>
-					<button>Beli</button>
-				</td>
-				<td>
-					RAM
-					<br>
-					<button>Beli</button>
-				</td>
-			</tr>
-		</table>
+	<h3>Belanja dengan Kenikmatan</h3>
+		<div class="card">
+			<h4><b>Monitor</b></h4> 
+			<img src="">
+			<div class="content">
+				    <p>Harga :</p>
+				<button>Beli</button>
+			</div>
+		</div>
+		<div class="card">
+			<h4><b>RAM</b></h4> 
+			<img src="">
+			<div class="content">
+				    <p>Harga :</p>
+				<button>Beli</button>
+			</div>
+		</div>
+		<div class="card">
+			<h4><b>SSD</b></h4> 
+			<img src="">
+			<div class="content">
+				    <p>Harga :</p>
+				<button>Beli</button>
+			</div>
+		</div>
 	</div>
 	<!-- End Konten -->
 
