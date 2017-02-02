@@ -1,2 +1,2 @@
 # phpapsi
-Pejuan PHP
+Pejuang PHP
