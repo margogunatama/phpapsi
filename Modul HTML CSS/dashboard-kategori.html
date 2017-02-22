@@ -2,11 +2,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-
         <div class="container">
             <div class="header">
               <div class="left-bar">
@@ -19,16 +17,31 @@
 
             <div class="middle">
                 <div class="left-bar">
-                    <ul>
-                      <li><a class="active" href="dashboard-admin.html">Dashboard</a></li>
-                      <li><a href="dashboard-kategori.html">Kategori</a></li>
+                  <ul>
+                      <li><a href="dashboard-admin.html">Dashboard</a></li>
+                      <li><a class="active" href="dashboard-kategori.html">Kategori</a></li>
                       <li><a href="dashboard-barang.html">Barang</a></li>
                       <li><a href="dashboard-transaksi.html">Transaksi</a></li>
                       <li><a href="dashboard-pembeli.html">Pembeli</a></li>
-                    </ul>
+                  </ul>
                 </div>
                 <div class="content">
-                  <p>Ini Halaman Admin</p>
+                    <h3>Master Data Kategori</h3>
+                    <button class="button" style="vertical-align:middle"><span>New </span></button>
+                    <div class="scrolltable">
+                    <table>
+                        <tr>
+                            <th>Nama Kategori</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>ABC</td>
+                            <td><button class='button' type='vertical-align:middle'>Edit</button></td>
+                            <td><button class='button' type='vertical-align:middle'>Delete</button></td>
+                        </tr>
+                    </table>
+                  </div>
                 </div>
             </div>
             <div class="clear"></div>
