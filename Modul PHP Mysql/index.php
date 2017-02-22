@@ -31,7 +31,7 @@
 	<div class="container">
 	<h3>Belanja dengan Kenikmatan</h3>
 		<div class="card">
-			<h4><b>Monitor</b></h4> 
+			<h4><b>Monitor</b></h4>
 			<img src="">
 			<div class="content">
 				    <p>Harga :</p>
@@ -39,7 +39,7 @@
 			</div>
 		</div>
 		<div class="card">
-			<h4><b>RAM</b></h4> 
+			<h4><b>RAM</b></h4>
 			<img src="">
 			<div class="content">
 				    <p>Harga :</p>
@@ -47,7 +47,7 @@
 			</div>
 		</div>
 		<div class="card">
-			<h4><b>SSD</b></h4> 
+			<h4><b>SSD</b></h4>
 			<img src="">
 			<div class="content">
 				    <p>Harga :</p>

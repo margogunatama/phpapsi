@@ -7,6 +7,10 @@ body {
   font-size: large;
 }
 
+p{
+	margin: 10px;
+}
+
 .container {
 	background-color: #030C11;
 	width: 100%;
@@ -44,6 +48,35 @@ body {
 	color: #1DA8D1;
 }
 
+.scrolltable {
+	overflow-x: auto;
+}
+
+/*table*/
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: auto;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+th, td {
+    border-bottom: 2px solid #030C11;
+    text-align: left;
+    padding: 10px;
+}
+
+td{
+    background-color: white;
+
+}
+th {
+    background-color: #445E69;
+    color: white;
+}
+
+/*list*/
 ul {
 	list-style-type: none;
 	margin: 0;
@@ -72,6 +105,7 @@ li a:hover:not(.active) {
 	clear: both;
 }
 
+/*sidebar*/
 .middle {
 	height: 550px;
 }
@@ -83,6 +117,7 @@ li a:hover:not(.active) {
 	height: 100%;
 }
 
+/*content*/
 .middle .content {
 	background-color: white;
 	float: left;
@@ -90,6 +125,11 @@ li a:hover:not(.active) {
 	height: 100%;
 }
 
+.middle .content h3{
+	padding: 10px;
+}
+
+/*footer*/
 .footer {
 	background-color: #03141E;
 	width: 100%;
@@ -99,4 +139,45 @@ li a:hover:not(.active) {
 .footer h4{
   color: white;
   text-align: center;
+}
+
+/*button*/
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #03141E;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 8px 0px 0px 20px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '+';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
