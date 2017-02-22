@@ -1,11 +1,44 @@
 <!DOCTYPE html>
+<?php
+	require_once 'koneksi.php';
+
+	if (isset($_POST['btn-login'])) {
+
+ $username = strip_tags($_POST['uname']);
+ $password = strip_tags($_POST['psw']);
+
+ $username = $conn->real_escape_string($username);
+ $password = $conn->real_escape_string($password);
+
+ $query = $conn->query("SELECT username, password FROM tb_user WHERE username='$username'");
+ $row=$query->fetch_array();
+
+ $count = $query->num_rows; // if email/password are correct returns must be 1 row
+
+ if (password_verify($password, $row['password']) && $count==1) {
+  // header("Location: home.php");
+	// $msg = "<div class='alert alert-success'>
+  //    <span class='glyphicon glyphicon-info-sign'></span> &nbsp; Access Granted !
+  //   </div>";
+	echo "<script>
+				 window.alert('bener');
+			 </script>";
+ } else {
+	 echo "<script>
+	 				window.alert('salah');
+	 			</script>";
+ }
+ $conn->close();
+}
+?>
+
 <html>
 <head>
 	<title></title>
 	<link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-<form action="dashboard-admin.html" method="post">
+<form method="post" action="login.php">
   <div class="container">
   <div class="imgcontainer">
     <img src="images/Logo1.png" width="100px" height="100px" alt="Avatar" class="avatar">
@@ -15,7 +48,7 @@
     <input type="text" placeholder="Enter Username" name="uname" required>
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
-    <button type="submit">Login</button>
+		<input type="submit" name="btn-login" value="Login">
     <hr>
     <span class="psw"><a href="#">Don't have an account?</a></span>
   </div>
