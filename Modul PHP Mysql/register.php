@@ -1,47 +1,55 @@
 <?php
-// require_once 'dbconnect.php';
-//
-// if(isset($_POST['btn-signup'])) {
-//
-//  $uname = strip_tags($_POST['username']);
-//  $upass = strip_tags($_POST['password']);
-//  $email = strip_tags($_POST['email']);
-//
-//
-//  $uname = $DBcon->real_escape_string($uname);
-//  $email = $DBcon->real_escape_string($email);
-//  $upass = $DBcon->real_escape_string($upass);
-//
-//  $hashed_password = password_hash($upass, PASSWORD_DEFAULT); // this function works only in PHP 5.5 or latest version
-//
-//  $check_email = $DBcon->query("SELECT email FROM tbl_users WHERE email='$email'");
-//  $count=$check_email->num_rows;
-//
-//  if ($count==0) {
-//
-//   $query = "INSERT INTO tbl_users(username,email,password) VALUES('$uname','$email','$hashed_password')";
-//
-//   if ($DBcon->query($query)) {
-//    $msg = "<div class='alert alert-success'>
-//       <span class='glyphicon glyphicon-info-sign'></span> &nbsp; successfully registered !
-//      </div>";
-//   }else {
-//    $msg = "<div class='alert alert-danger'>
-//       <span class='glyphicon glyphicon-info-sign'></span> &nbsp; error while registering !
-//      </div>";
-//   }
-//
-//  } else {
-//
-//
-//   $msg = "<div class='alert alert-danger'>
-//      <span class='glyphicon glyphicon-info-sign'></span> &nbsp; sorry email already taken !
-//     </div>";
-//
-//  }
-//
-//  $DBcon->close();
-// }
+require_once 'koneksi.php';
+
+if(isset($_POST['btn-signup'])) {
+
+ $uname = strip_tags($_POST['username']);
+ $upass = strip_tags($_POST['password']);
+ $nama = strip_tags($_POST['nama']);
+ $email = strip_tags($_POST['email']);
+ $alamat = strip_tags($_POST['alamat']);
+ $phone = strip_tags($_POST['phone']);
+
+
+ $uname = $conn->real_escape_string($uname);
+ $upass = $conn->real_escape_string($upass);
+ $nama = $conn->real_escape_string($nama);
+ $email = $conn->real_escape_string($email);
+ $alamat = $conn->real_escape_string($alamat);
+ $phone = $conn->real_escape_string($phone);
+
+ $hashed_password = password_hash($upass, PASSWORD_DEFAULT); // this function works only in PHP 5.5 or latest version
+
+ $check_email = $conn->query("SELECT email FROM tb_pelanggan WHERE email='$email'");
+ $count=$check_email->num_rows;
+
+ if ($count==0) {
+
+  $query = "INSERT INTO tb_pelanggan (username,password,nama,email,alamat,telepon) VALUES('$uname','$hashed_password','$nama','$email','$alamat','$phone')";
+
+  if ($conn->query($query)) {
+   echo "<script>
+ 				 window.alert('ANJAAY');
+ 			 </script>";
+  }else {
+   echo "<script>
+ 				 window.alert('gagal');
+ 			 </script>";
+  }
+
+ } else {
+echo "<script>
+       window.alert('email sudah terpakai');
+     </script>";
+  //
+  // $msg = "<div class='alert alert-danger'>
+  //    <span class='glyphicon glyphicon-info-sign'></span> &nbsp; sorry email already taken !
+  //   </div>";
+
+ }
+
+ $conn->close();
+}
 ?>
 
 <html>
@@ -60,14 +68,14 @@
  <div class="container">
 
 
-       <form class="form-signin" method="post" id="register-form">
+       <form class="form-signin" method="post" id="register-form" action="register.php">
 
         <h2 class="form-signin-heading">Sign Up</h2><hr />
 
         <?php
-  // if (isset($msg)) {
-  //  echo $msg;
-  // }
+  if (isset($msg)) {
+   echo $msg;
+  }
   ?>
 
         <div class="form-group">
@@ -75,12 +83,24 @@
         </div>
 
         <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email address" name="email" required  />
+        <input type="password" class="form-control" placeholder="Password" name="password" required  />
+        </div>
+
+        <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nama" name="nama" required  />
+        </div>
+
+        <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" name="email" required  />
         <span id="check-e"></span>
         </div>
 
         <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" name="password" required  />
+        <textarea name="alamat" placeholder="Alamat Lengkap" rows="8" cols="80"></textarea>
+        </div>
+
+        <div class="form-group">
+        <input type="text" class="form-control" placeholder="No Telepon" name="phone" maxlength="12" required/>
         </div>
 
       <hr />

@@ -10,7 +10,7 @@
  $username = $conn->real_escape_string($username);
  $password = $conn->real_escape_string($password);
 
- $query = $conn->query("SELECT username, password FROM tb_user WHERE username='$username'");
+ $query = $conn->query("SELECT username, password FROM tb_pelanggan WHERE username='$username'");
  $row=$query->fetch_array();
 
  $count = $query->num_rows; // if email/password are correct returns must be 1 row
