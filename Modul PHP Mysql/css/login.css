@@ -1,0 +1,155 @@
+body {
+  font-family: QuickSandBook;
+  font-size: large;
+  background-image: url(../images/bg.jpg);
+}
+
+@font-face {
+	font-family: QuickSandBook;
+	src: url('../fonts/quicksand_book.otf');
+}
+
+hr {
+  height: 2px;
+  border-radius:6px 6px 0px 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+
+}
+h2 {
+  text-align:center;
+  padding:18px 0 18px 0;
+  font-size: 1.4em;
+}
+
+label {
+  color: #fff;
+}
+
+/* Form */
+form {
+  position: fixed;
+  margin-top: -200px;
+  margin-left: -200px;
+  padding-bottom: 20px;
+  width: 400px;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  background-color: #030C11;
+  border: 2px #225869;
+  box-shadow: 3px 3px 10px;
+  -webkit-border-radius:6px 6px 0px 0px;
+  -moz-border-radius:6px 6px 0px 0px;
+  border-radius:6px 6px 6px 6px;
+}
+
+
+/* Full-width inputs */
+input {
+  margin-bottom:10px;
+}
+textarea {
+  height:100px;
+  margin-bottom:10px;
+}
+input:first-of-type
+{
+  margin-top:10px;
+}
+input, textarea {
+  font-size: 1em;
+  padding: 15px 10px 10px;
+  font-family: 'Source Sans Pro',arial,sans-serif;
+  border: 1px solid #cecece;
+  background: #fff;
+  color:#34495E;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 80%;
+  max-width: 600px;
+}
+::-webkit-input-placeholder {
+   color: #34495E;
+}
+:-moz-placeholder {
+   color: #FAFAFA;
+}
+::-moz-placeholder {
+   color: #FAFAFA;
+}
+:-ms-input-placeholder {
+   color: #FAFAFA;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #225869;
+  margin-top:15px;
+  margin-bottom:15px;
+  background-color:#1DA8D1;
+  padding: 12px 45px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #34495E;
+  -webkit-transition: .5s;
+  transition: .5s;
+  display: inline-block;
+  cursor: pointer;
+  width:30%;
+  color:#fff;
+}
+
+button:hover, .button:hover {
+  background:#8C9AA9;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+
+}
+
+/* Avatar image */
+img.avatar {
+    border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  max-width:500px;
+  margin:0 auto;
+  text-align:center;
+  -webkit-border-radius:6px 6px 0px 0px;
+  -moz-border-radius:6px 6px 0px 0px;
+  border-radius:6px 6px 0px 0px;
+  background-color: #030C11;
+}
+
+
+span.psw {
+    text-align: center;
+    padding-top: 20px;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+}
