@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2017 at 04:53 AM
+-- Generation Time: Feb 23, 2017 at 05:07 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -105,7 +105,6 @@ CREATE TABLE `tb_keranjang` (
   `id` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `pelanggan_id` int(11) NOT NULL,
-  `kode_unik` int(11) NOT NULL,
   `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
