@@ -22,7 +22,7 @@
 			<tr><td>Kategori Barang<hr></td></tr>
 			<?php
 			$sql = "SELECT * FROM tb_kategori_barang";
-			$result = mysqli_query($mysqli, $sql);
+			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
 				// output data of each row
 				while($row = mysqli_fetch_array($result)) {
@@ -48,12 +48,12 @@
 		}else{
 			$sql = "SELECT * FROM tb_barang ORDER BY kode_barang DESC LIMIT 15";
 		}
-		$result = mysqli_query($mysqli, $sql);
+		$result = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($result) > 0) {
 			// output data of each row
 			while($row = mysqli_fetch_array($result)) {
 				//http://localhost/phpapsi/Modul%20PHP%20Mysql/index.php
-				$get_link = $link_server."/phpapsi/Modul%20PHP%20Mysql/masuk_keranjang.php?kode_barang=".$row[1];
+				$get_link = $link_server."/phpapsi/Modul%20PHP%20Mysql/masuk_keranjang.php?barang_id=".$row[0];
 				?>
 				<div class="card">
 					<h4><b><?php echo $row[2]; ?></b></h4>

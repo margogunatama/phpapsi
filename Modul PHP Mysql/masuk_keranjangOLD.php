@@ -12,11 +12,24 @@
     if(mysqli_num_rows($result_cekUser) == 0){
       echo mysqli_num_rows($result_cekUser)."<br>";
       //Jika tidak memiliki transaksi aktif maka buat data di tb_transaksi dan tb_detail_keranjang serta tb_transaksi(buat status on_keranjang)
-      $sql_newKeranjang = "INSERT INTO tb_keranjang (pelanggan_id) SELECT tbpel.id
+      $sql_newKeranjang = "INSERT INTO tb_keranjang (pelanggan_id)
+                        SELECT tbpel.id
                         FROM tb_pelanggan tbpel
                         WHERE tbpel.id = '$pelanggan_id'";
       $result_newKeranjang = mysqli_query($conn, $sql_newKeranjang);
       if($result_newKeranjang){echo "newKeranjangDONE<br>";}else{echo "newKeranjangFAIL<br>";}
+
+      $sql_cekKeranjang = "SELECT keranjang_id FROM tb_transaksi WHERE pelanggan_id = $pelanggan_id AND status = 0";
+      $result_cekKeranjang = mysqli_query($conn, $sql_cekKeranjang);
+      $row_cekKeranjang = mysqli_fetch_array($result_cekKeranjang);
+
+      $sql_newTrans = "INSERT INTO tb_transaksi (keranjang_id,pelanggan_id,metode_id,status)
+                        VALUES(
+                          SELECT id FROM tb_keranjang WHERE pelanggan_id = $row_cekKeranjang[0],
+                          
+                        )";
+      $result_newTrans = mysqli_query($conn, $sql_newTrans);
+      if($result_newTrans){echo "newTransDONE<br>";}else{echo "newTransFAIL<br>";}
 
       // INSERT INTO Images(imgId, imgname, categoryFk)
       //    SELECT 9876, 'photo1.jpg', cat.categoryId
