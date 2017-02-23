@@ -26,24 +26,14 @@
                   </ul>
                 </div>
                 <div class="content">
-                    <h3>Master Data Kategori</h3>
-                    <form action="form-kategori-insert.php" method="post">
-                    <button class="button" style="vertical-align:middle"><span>New </span></button>
-                    </form>
-                    <div class="scrolltable">
-                    <table>
-                        <tr>
-                            <th>Nama Kategori</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>ABC</td>
-                            <td><button class='button' type='vertical-align:middle'>Edit</button></td>
-                            <td><button class='button' type='vertical-align:middle'>Delete</button></td>
-                        </tr>
-                    </table>
-                  </div>
+                    <h3>Insert Kategori</h3>
+                    <form action="#" method="POST">
+                          <div class="labelleft"><label><b>Nama Kategori</b></label></div>
+                          <div class="labelright"><input type="text" placeholder="Nama Kategori" name="" required></div>
+                          </br>
+                          <button class='button' type='vertical-align:middle'>Insert</button>
+                      </form>
+                    </div>
                 </div>
             </div>
             <div class="clear"></div>

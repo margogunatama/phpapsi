@@ -21,10 +21,11 @@
             <div class="middle">
                 <div class="left-bar">
                     <ul>
-                        <li><a class="active" href="#">Dashboard</a></li>
-                        <li><a href="#">Master Data</a></li>
-                        <li><a href="#">Log</a></li>
-                        <li><a href="#">Barang</a></li>
+                      <li><a class="active" href="dashboard-admin.php">Dashboard</a></li>
+                      <li><a href="dashboard-kategori.php">Kategori</a></li>
+                      <li><a href="dashboard-barang.php">Barang</a></li>
+                      <li><a href="dashboard-transaksi.php">Transaksi</a></li>
+                      <li><a href="dashboard-pembeli.php">Pembeli</a></li>
                     </ul>
                 </div>
                 <div class="content">

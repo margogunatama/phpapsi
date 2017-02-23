@@ -18,16 +18,18 @@
             <div class="middle">
                 <div class="left-bar">
                   <ul>
-                      <li><a href="dashboard-admin.html">Dashboard</a></li>
-                      <li><a href="dashboard-kategori.html">Kategori</a></li>
-                      <li><a href="dashboard-barang.html">Barang</a></li>
-                      <li><a class="active" href="dashboard-transaksi.html">Transaksi</a></li>
-                      <li><a href="dashboard-pembeli.html">Pembeli</a></li>
+                      <li><a href="dashboard-admin.php">Dashboard</a></li>
+                      <li><a href="dashboard-kategori.php">Kategori</a></li>
+                      <li><a href="dashboard-barang.php">Barang</a></li>
+                      <li><a class="active" href="dashboard-transaksi.php">Transaksi</a></li>
+                      <li><a href="dashboard-pembeli.php">Pembeli</a></li>
                   </ul>
                 </div>
                 <div class="content">
                     <h3>Master Data Transaksi</h3>
+                    <form action="form-transaksi-view.php" method="post">
                     <button class="button" style="vertical-align:middle">View</button>
+                    </form>
                     <div class="scrolltable">
                     <table>
                         <tr>

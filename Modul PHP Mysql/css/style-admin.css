@@ -181,3 +181,38 @@ li a:hover:not(.active) {
   opacity: 1;
   right: 0;
 }
+
+
+/*form-input*/
+
+.labelleft {
+	width: 20%;
+	float: left;
+	margin-left: 10px;
+	padding: 14px 20px;
+}
+
+.labelright {
+	width: 80%;
+}
+
+input[type=text], select {
+    width: 50%;
+    padding: 12px 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 50%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
