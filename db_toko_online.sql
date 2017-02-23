@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2017 at 05:07 AM
+-- Generation Time: Feb 23, 2017 at 12:08 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -42,7 +42,6 @@ CREATE TABLE `tb_admin` (
 
 CREATE TABLE `tb_barang` (
   `id` int(11) NOT NULL,
-  `kode_barang` text NOT NULL,
   `nama_barang` text NOT NULL,
   `harga` int(11) NOT NULL,
   `stok` int(11) NOT NULL,
@@ -53,12 +52,12 @@ CREATE TABLE `tb_barang` (
 -- Dumping data for table `tb_barang`
 --
 
-INSERT INTO `tb_barang` (`id`, `kode_barang`, `nama_barang`, `harga`, `stok`, `kategori_id`) VALUES
-(1, 'B1', '4GB PC3-12800 1600Mhz 240pin 1.5V DDR3 Desktop Dimm Memory Low Density', 400000, 15, 1),
-(2, 'B2', 'Intel Core i7-6700K 8M Skylake Quad-Core 4.0 GHz BX80662I76700K Processor', 3500000, 3, 2),
-(3, 'B3', 'Samsung CF390 Series Curved 22-Inch FHD FreeSync Monitor', 2000000, 5, 3),
-(4, 'B4', 'ZALMAN Z3 Plus ATX Mid-Tower PC Case, Optimum Multi-Fan system cooling, Wide ban', 350000, 7, 4),
-(5, 'B5', 'NVIDIA Founders Edition GeForce GTX 1070 8GB GDDR5X PCI Express 3.0 Graphics Card', 5900000, 1, 5);
+INSERT INTO `tb_barang` (`id`, `nama_barang`, `harga`, `stok`, `kategori_id`) VALUES
+(1, '4GB PC3-12800 1600Mhz 240pin 1.5V DDR3 Desktop Dimm Memory Low Density', 400000, 15, 1),
+(2, 'Intel Core i7-6700K 8M Skylake Quad-Core 4.0 GHz BX80662I76700K Processor', 3500000, 3, 2),
+(3, 'Samsung CF390 Series Curved 22-Inch FHD FreeSync Monitor', 2000000, 5, 3),
+(4, 'ZALMAN Z3 Plus ATX Mid-Tower PC Case, Optimum Multi-Fan system cooling, Wide ban', 350000, 7, 4),
+(5, 'NVIDIA Founders Edition GeForce GTX 1070 8GB GDDR5X PCI Express 3.0 Graphics Card', 5900000, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -69,9 +68,16 @@ INSERT INTO `tb_barang` (`id`, `kode_barang`, `nama_barang`, `harga`, `stok`, `k
 CREATE TABLE `tb_detail_keranjang` (
   `id` int(11) NOT NULL,
   `keranjang_id` int(11) NOT NULL,
-  `data_barang` text NOT NULL,
+  `barang_id` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_detail_keranjang`
+--
+
+INSERT INTO `tb_detail_keranjang` (`id`, `keranjang_id`, `barang_id`, `jumlah`) VALUES
+(1, 20, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -103,10 +109,17 @@ INSERT INTO `tb_kategori_barang` (`id`, `nama_kategori`) VALUES
 
 CREATE TABLE `tb_keranjang` (
   `id` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
   `pelanggan_id` int(11) NOT NULL,
-  `total` int(11) NOT NULL
+  `total` int(11) NOT NULL,
+  `isused` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_keranjang`
+--
+
+INSERT INTO `tb_keranjang` (`id`, `pelanggan_id`, `total`, `isused`) VALUES
+(20, 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -118,6 +131,14 @@ CREATE TABLE `tb_metode_pembayaran` (
   `id` int(11) NOT NULL,
   `metode_pembayaran` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_metode_pembayaran`
+--
+
+INSERT INTO `tb_metode_pembayaran` (`id`, `metode_pembayaran`) VALUES
+(1, 'COD'),
+(2, 'TRANSFER');
 
 -- --------------------------------------------------------
 
@@ -135,6 +156,13 @@ CREATE TABLE `tb_pelanggan` (
   `telepon` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_pelanggan`
+--
+
+INSERT INTO `tb_pelanggan` (`id`, `username`, `password`, `nama`, `email`, `alamat`, `telepon`) VALUES
+(1, 'abid', '', 'abid', 'abid@gmail.com', 'Graha raya bintaro, cluster angrek loka', 87882266);
+
 -- --------------------------------------------------------
 
 --
@@ -145,6 +173,14 @@ CREATE TABLE `tb_status_pembayaran` (
   `id` int(11) NOT NULL,
   `status_pembayaran` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_status_pembayaran`
+--
+
+INSERT INTO `tb_status_pembayaran` (`id`, `status_pembayaran`) VALUES
+(1, 'ON_HOLD'),
+(2, 'PAID');
 
 -- --------------------------------------------------------
 
@@ -158,7 +194,8 @@ CREATE TABLE `tb_transaksi` (
   `metode_id` int(11) NOT NULL,
   `total_keseluruhan` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `pelanggan_id` int(11) NOT NULL
+  `pelanggan_id` int(11) NOT NULL,
+  `tanggal_beli` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -183,7 +220,8 @@ ALTER TABLE `tb_barang`
 --
 ALTER TABLE `tb_detail_keranjang`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `transaksi_id` (`keranjang_id`);
+  ADD KEY `transaksi_id` (`keranjang_id`),
+  ADD KEY `barang_id` (`barang_id`);
 
 --
 -- Indexes for table `tb_kategori_barang`
@@ -244,7 +282,7 @@ ALTER TABLE `tb_barang`
 -- AUTO_INCREMENT for table `tb_detail_keranjang`
 --
 ALTER TABLE `tb_detail_keranjang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tb_kategori_barang`
 --
@@ -254,22 +292,22 @@ ALTER TABLE `tb_kategori_barang`
 -- AUTO_INCREMENT for table `tb_keranjang`
 --
 ALTER TABLE `tb_keranjang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `tb_metode_pembayaran`
 --
 ALTER TABLE `tb_metode_pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tb_status_pembayaran`
 --
 ALTER TABLE `tb_status_pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
@@ -289,7 +327,8 @@ ALTER TABLE `tb_barang`
 -- Constraints for table `tb_detail_keranjang`
 --
 ALTER TABLE `tb_detail_keranjang`
-  ADD CONSTRAINT `tb_detail_keranjang_ibfk_1` FOREIGN KEY (`keranjang_id`) REFERENCES `tb_keranjang` (`id`);
+  ADD CONSTRAINT `tb_detail_keranjang_ibfk_1` FOREIGN KEY (`keranjang_id`) REFERENCES `tb_keranjang` (`id`),
+  ADD CONSTRAINT `tb_detail_keranjang_ibfk_2` FOREIGN KEY (`barang_id`) REFERENCES `tb_barang` (`id`);
 
 --
 -- Constraints for table `tb_keranjang`
@@ -303,8 +342,7 @@ ALTER TABLE `tb_keranjang`
 ALTER TABLE `tb_transaksi`
   ADD CONSTRAINT `tb_transaksi_ibfk_2` FOREIGN KEY (`keranjang_id`) REFERENCES `tb_keranjang` (`id`),
   ADD CONSTRAINT `tb_transaksi_ibfk_3` FOREIGN KEY (`metode_id`) REFERENCES `tb_metode_pembayaran` (`id`),
-  ADD CONSTRAINT `tb_transaksi_ibfk_4` FOREIGN KEY (`status`) REFERENCES `tb_status_pembayaran` (`id`),
-  ADD CONSTRAINT `tb_transaksi_ibfk_5` FOREIGN KEY (`pelanggan_id`) REFERENCES `tb_pelanggan` (`id`);
+  ADD CONSTRAINT `tb_transaksi_ibfk_4` FOREIGN KEY (`status`) REFERENCES `tb_status_pembayaran` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
