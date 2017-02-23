@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+  include('koneksi.php');
+  if(isset($_GET['id'])){
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
+    $query = "SELECT * from tb_barang WHERE id = $id";
+  }
+?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,20 +34,55 @@
                 </div>
                 <div class="content">
                   <h3>Update Barang</h3>
-                  <form action="#" method="POST">
+                  <form action="dashboard-barang.php" method="POST">
+
+                        <?php
+                            if(isset($_GET['id'])){
+                              $result = mysqli_query($conn, $query);
+                               if($result){
+                                  while($data_barang = mysqli_fetch_row($result)){
+                          ?>
+                        
+                        <div class="labelright"><input type="hidden" value=<?php echo $data_barang[0]; ?> name="id_barang"></div>
+                        </br>
                         <div class="labelleft"><label><b>Barang ID</b></label></div>
-                        <div class="labelright"><input type="text" value="Barang ID" name="" disabled></div>
+                        <div class="labelright"><input type="text" value=<?php echo $data_barang[0]; ?> disabled></div>
                         </br>
                         <div class="labelleft"><label><b>Nama Barang</b></label></div>
-                        <div class="labelright"><input type="text" placeholder="Nama Barang" name="" required></div>
+                        <div class="labelright"><input type="text" placeholder="Nama Barang" value=<?php echo $data_barang[1]; ?> 
+                        name="nama_barang" required></div>
                         </br>
                         <div class="labelleft"><label><b>Harga</b></label></div>
-                        <div class="labelright"><input type="text" placeholder="Harga" name="" required></div>
+                        <div class="labelright"><input type="text" placeholder="Harga" value=<?php echo $data_barang[2]; ?> name="harga" required></div>
                         </br>
                         <div class="labelleft"><label><b>Stok</b></label></div>
-                        <div class="labelright"><input type="text" placeholder="Stok" name="" required></div>
+                        <div class="labelright"><input type="text" placeholder="Stok" value=<?php echo $data_barang[3]; ?> name="stok" required></div>
                         </br>
-                        <button class='button' type='vertical-align:middle'>Update</button>
+                        <div class="labelleft"><label><b>Kategori</b></label></div>
+                        <div class="labelright">
+                          <select name="kategori">
+                            <?php
+                                $query = "SELECT * FROM tb_kategori_barang";
+                                $result = mysqli_query($conn, $query);
+                                while($row=mysqli_fetch_row($result)){                                                 
+                                   echo "<option value='".$row[0]."'" ?> 
+                                   <?php 
+                                        if($row[0]==$data_barang[4]) {
+                                            echo 'selected="selected"';
+                                        }
+                                    ?>
+                                    <?php echo">".$row[1]."</option>";
+                                }
+                            ?>
+                          </select>
+                        </div>
+                        <?php
+                              }
+                            }
+                          }
+                            ?>
+                        <button class='button' name='btnUpdate' type='vertical-align:middle'>Update</button>
+                        <a class='button' href='dashboard-barang.php' name='btnCancel' type='vertical-align:middle'>Cancel</a>
                     </form>
                 </div>
             </div>
