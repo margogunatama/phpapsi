@@ -2,10 +2,12 @@
   include 'koneksi.php';
 
   //session
-  $sql_keranjang = mysqli_query("SELECT * FROM tb_keranjang WHERE pelanggan_id = $sesion_pelanggan_id");
-	$$row=mysqli_fetch_array($query);
-
-  $count = mysqli_num_rows($query);
+	$session_pelanggan_id = 1;
+  $sql_keranjang = mysqli_query($conn,"SELECT tb_barang.nama_barang, tb_detail_keranjang.jumlah, (tb_detail_keranjang.jumlah*tb_barang.harga)
+FROM tb_barang
+INNER JOIN tb_detail_keranjang ON tb_detail_keranjang.barang_id = tb_barang.id
+INNER JOIN tb_keranjang ON tb_detail_keranjang.keranjang_id = tb_keranjang.id
+WHERE tb_keranjang.pelanggan_id = $session_pelanggan_id;");
 ?>
 
 <!DOCTYPE html>
@@ -47,16 +49,23 @@
 			<th> </th>
 		</tr>
 		<?php
-			if($count != 0){
+		if (mysqli_num_rows($sql_keranjang) > 0) {
+			// output data of each row
+		 	$x = 1;
+			while($row = mysqli_fetch_array($sql_keranjang)) {
+
 		?>
 		<tr>
-			<td>1</td>
-			<td>RAM</td>
-			<td>1</td>
-			<td>Rp. 400.000</td>
+			<td><?php echo $x; ?></td>
+			<td><?php echo $row[0]; ?></td>
+			<td><?php echo $row[1]; ?></td>
+			<td>Rp. <?php echo $row[2]; ?></td>
 			<td><button>Hapus</button></td>
 		</tr>
-		<<?php } ?>
+		<?php
+		$x++;
+	}
+	} ?>
 	</table>
 	<button>Beli</button>
 </div>
