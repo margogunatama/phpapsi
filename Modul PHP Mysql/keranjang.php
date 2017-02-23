@@ -52,21 +52,28 @@ WHERE tb_keranjang.pelanggan_id = $session_pelanggan_id;");
 		if (mysqli_num_rows($sql_keranjang) > 0) {
 			// output data of each row
 		 	$x = 1;
+      $total_keseluruhan = 0;
 			while($row = mysqli_fetch_array($sql_keranjang)) {
 
 		?>
 		<tr>
-			<td><?php echo $x; ?></td>
+			<td align="center"><?php echo $x; ?></td>
 			<td><?php echo $row[0]; ?></td>
-			<td><?php echo $row[1]; ?></td>
-			<td>Rp. <?php echo $row[2]; ?></td>
-			<td><button>Hapus</button></td>
+			<td align="center"><?php echo $row[1]; ?></td>
+			<td align="right">Rp. <?php echo $row[2]; ?></td>
+      <td><button type="button" name="hapus">Hapus</button></td>
 		</tr>
 		<?php
 		$x++;
+    $total_keseluruhan += $row[2];
 	}
 	} ?>
+  <tr>
+    <td colspan="4" align="right">Total Keseluruhan : </td>
+    <td>Rp. <?php echo $total_keseluruhan; ?></td>
+  </tr>
 	</table>
+  <br/>
 	<button>Beli</button>
 </div>
 
