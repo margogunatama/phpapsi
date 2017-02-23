@@ -64,7 +64,47 @@
 				echo "0 results";
 			}
 		?>
-		<a href='<?php echo $link_server."phpapsi/Modul%20PHP%20Mysql/katalog.php?"; ?>'>Buka Katalog</a>
+		<div class="card">
+			<h4><b>aaa</b></h4>
+			<img src="">
+			<div class="content">
+				<p>Harga : bb</p>
+				<button><a href="">Beli</a></button>
+			</div>
+		</div>
+		<div class="card">
+			<h4><b>aaa</b></h4>
+			<img src="">
+			<div class="content">
+				<p>Harga : bb</p>
+				<button><a href="">Beli</a></button>
+			</div>
+		</div>
+		<div class="card">
+			<h4><b>aaa</b></h4>
+			<img src="">
+			<div class="content">
+				<p>Harga : bb</p>
+				<button><a href="">Beli</a></button>
+			</div>
+		</div>
+		<div class="card">
+			<h4><b>aaa</b></h4>
+			<img src="">
+			<div class="content">
+				<p>Harga : bb</p>
+				<button><a href="">Beli</a></button>
+			</div>
+		</div>
+		<div class="card">
+			<h4><b>aaa</b></h4>
+			<img src="">
+			<div class="content">
+				<p>Harga : bb</p>
+				<button><a href="">Beli</a></button>
+			</div>
+		</div>
+
 	</div>
 	<!-- End Konten -->
 
