@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2017 at 11:08 AM
+-- Generation Time: Feb 23, 2017 at 12:08 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -72,6 +72,13 @@ CREATE TABLE `tb_detail_keranjang` (
   `jumlah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_detail_keranjang`
+--
+
+INSERT INTO `tb_detail_keranjang` (`id`, `keranjang_id`, `barang_id`, `jumlah`) VALUES
+(1, 20, 5, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -106,6 +113,13 @@ CREATE TABLE `tb_keranjang` (
   `total` int(11) NOT NULL,
   `isused` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_keranjang`
+--
+
+INSERT INTO `tb_keranjang` (`id`, `pelanggan_id`, `total`, `isused`) VALUES
+(20, 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -268,7 +282,7 @@ ALTER TABLE `tb_barang`
 -- AUTO_INCREMENT for table `tb_detail_keranjang`
 --
 ALTER TABLE `tb_detail_keranjang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tb_kategori_barang`
 --
@@ -278,7 +292,7 @@ ALTER TABLE `tb_kategori_barang`
 -- AUTO_INCREMENT for table `tb_keranjang`
 --
 ALTER TABLE `tb_keranjang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `tb_metode_pembayaran`
 --
