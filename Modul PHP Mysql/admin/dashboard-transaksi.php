@@ -11,7 +11,7 @@
                 <h2>Admin</h2>
               </div>
               <div class="right-bar">
-                <a href="login.html">Logout</a>
+                <a href="login.php">Logout</a>
               </div>
             </div>
 
@@ -27,7 +27,7 @@
                 </div>
                 <div class="content">
                     <h3>Master Data Transaksi</h3>
-                    <form action="form-transaksi-view.php" method="post">
+                    <form>
                     <button class="button" style="vertical-align:middle">View</button>
                     </form>
                     <div class="scrolltable">

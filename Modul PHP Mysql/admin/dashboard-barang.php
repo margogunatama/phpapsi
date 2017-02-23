@@ -11,7 +11,7 @@
                 <h2>Admin</h2>
               </div>
               <div class="right-bar">
-                <a href="login.html">Logout</a>
+                <a href="login.php">Logout</a>
               </div>
             </div>
 
@@ -47,7 +47,7 @@
                               <td>20000</td>
                               <td>20</td>
                               <td>ABC</td>
-                              <td><button class='button' type='vertical-align:middle'>Edit</button></td>
+                              <td><a href="form-barang-update.php"><button class='button' type='vertical-align:middle'>Edit</button></a></td>
                               <td><button class='button' type='vertical-align:middle'>Delete</button></td>
                           </tr>
                     </table>

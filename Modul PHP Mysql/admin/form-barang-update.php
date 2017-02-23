@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/style-admin.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-admin.css">
     </head>
     <body>
         <div class="container">
@@ -11,25 +11,25 @@
                 <h2>Admin</h2>
               </div>
               <div class="right-bar">
-                <a href="login.html">Logout</a>
+                <a href="login.php">Logout</a>
               </div>
             </div>
 
             <div class="middle">
                 <div class="left-bar">
                   <ul>
-                      <li><a href="dashboard-admin.html">Dashboard</a></li>
-                      <li><a href="dashboard-kategori.html">Kategori</a></li>
-                      <li><a class="active" href="dashboard-barang.html">Barang</a></li>
-                      <li><a href="dashboard-transaksi.html">Transaksi</a></li>
-                      <li><a href="dashboard-pembeli.html">Pembeli</a></li>
+                    <li><a href="dashboard-admin.php">Dashboard</a></li>
+                    <li><a href="dashboard-kategori.php">Kategori</a></li>
+                    <li><a class="active" href="dashboard-barang.php">Barang</a></li>
+                    <li><a href="dashboard-transaksi.php">Transaksi</a></li>
+                    <li><a href="dashboard-pembeli.php">Pembeli</a></li>
                   </ul>
                 </div>
                 <div class="content">
-                  <h3>Insert Barang</h3>
+                  <h3>Update Barang</h3>
                   <form action="#" method="POST">
-                        <div class="labelleft"><label><b>Kode Barang</b></label></div>
-                        <div class="labelright"><input type="text" placeholder="Kode Barang" name="" required></div>
+                        <div class="labelleft"><label><b>Barang ID</b></label></div>
+                        <div class="labelright"><input type="text" value="Barang ID" name="" disabled></div>
                         </br>
                         <div class="labelleft"><label><b>Nama Barang</b></label></div>
                         <div class="labelright"><input type="text" placeholder="Nama Barang" name="" required></div>
@@ -40,10 +40,7 @@
                         <div class="labelleft"><label><b>Stok</b></label></div>
                         <div class="labelright"><input type="text" placeholder="Stok" name="" required></div>
                         </br>
-                        <div class="labelleft"><label><b>ID Barang</b></label></div>
-                        <div class="labelright"><input type="text" placeholder="ID Barang" name="" required></div>
-                        </br>
-                        <button class='button' type='vertical-align:middle'>Insert</button>
+                        <button class='button' type='vertical-align:middle'>Update</button>
                     </form>
                 </div>
             </div>

@@ -11,26 +11,18 @@
                 <h2>Admin</h2>
               </div>
               <div class="right-bar">
-                <a href="login.html">Logout</a>
+                <a href="login.php">Logout</a>
               </div>
             </div>
 
             <div class="middle">
                 <div class="left-bar">
                   <ul>
-<<<<<<< HEAD:Modul PHP Mysql/dashboard-kategori.php
-                    <li><a href="dashboard-admin.php">Dashboard</a></li>
-                    <li><a class="active" href="dashboard-kategori.php">Kategori</a></li>
-                    <li><a href="dashboard-barang.php">Barang</a></li>
-                    <li><a href="dashboard-transaksi.php">Transaksi</a></li>
-                    <li><a href="dashboard-pembeli.php">Pembeli</a></li>
-=======
                       <li><a href="dashboard-admin.php">Dashboard</a></li>
                       <li><a class="active" href="dashboard-kategori.php">Kategori</a></li>
                       <li><a href="dashboard-barang.php">Barang</a></li>
                       <li><a href="dashboard-transaksi.php">Transaksi</a></li>
                       <li><a href="dashboard-pembeli.php">Pembeli</a></li>
->>>>>>> origin/master:Modul PHP Mysql/admin/dashboard-kategori.php
                   </ul>
                 </div>
                 <div class="content">
@@ -47,7 +39,7 @@
                         </tr>
                         <tr>
                             <td>ABC</td>
-                            <td><button class='button' type='vertical-align:middle'>Edit</button></td>
+                            <td><a href="form-kategori-update.php"><button class='button' type='vertical-align:middle'>Edit</button></a></td>
                             <td><button class='button' type='vertical-align:middle'>Delete</button></td>
                         </tr>
                     </table>

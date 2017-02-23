@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/style-admin.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-admin.css">
     </head>
     <body>
         <div class="container">
@@ -11,7 +11,7 @@
                 <h2>Admin</h2>
               </div>
               <div class="right-bar">
-                <a href="login.html">Logout</a>
+                <a href="login.php">Logout</a>
               </div>
             </div>
 
@@ -26,12 +26,15 @@
                   </ul>
                 </div>
                 <div class="content">
-                    <h3>Insert Kategori</h3>
+                    <h3>Update Kategori</h3>
                     <form action="#" method="POST">
+                          <div class="labelleft"><label><b>ID</b></label></div>
+                          <div class="labelright"><input type="text" placeholder="ID Kategori" name="" disabled></div>
+                          </br>
                           <div class="labelleft"><label><b>Nama Kategori</b></label></div>
                           <div class="labelright"><input type="text" placeholder="Nama Kategori" name="" required></div>
                           </br>
-                          <button class='button' type='vertical-align:middle'>Insert</button>
+                          <button class='button' type='vertical-align:middle'>Update</button>
                       </form>
                     </div>
                 </div>
