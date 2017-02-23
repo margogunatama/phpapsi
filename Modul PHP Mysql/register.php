@@ -10,27 +10,21 @@ if(isset($_POST['btn-signup'])) {
  $alamat = strip_tags($_POST['alamat']);
  $phone = strip_tags($_POST['phone']);
 
-
- $uname = $conn->real_escape_string($uname);
- $upass = $conn->real_escape_string($upass);
- $nama = $conn->real_escape_string($nama);
- $email = $conn->real_escape_string($email);
- $alamat = $conn->real_escape_string($alamat);
- $phone = $conn->real_escape_string($phone);
-
  $hashed_password = password_hash($upass, PASSWORD_DEFAULT); // this function works only in PHP 5.5 or latest version
 
- $check_email = $conn->query("SELECT email FROM tb_pelanggan WHERE email='$email'");
- $count=$check_email->num_rows;
+ $check_email = mysqli_query($conn, "SELECT email FROM tb_pelanggan WHERE email='$email'");
+ $count=mysqli_num_rows($check_email);
 
  if ($count==0) {
 
   $query = "INSERT INTO tb_pelanggan (username,password,nama,email,alamat,telepon) VALUES('$uname','$hashed_password','$nama','$email','$alamat','$phone')";
 
-  if ($conn->query($query)) {
+  if (mysqli_query($conn,$query)) {
    echo "<script>
  				 window.alert('ANJAAY');
- 			 </script>";
+         window.location='login.php';
+ 			  </script>";
+
   }else {
    echo "<script>
  				 window.alert('gagal');
@@ -48,7 +42,7 @@ echo "<script>
 
  }
 
- $conn->close();
+ mysqli_close($conn);
 }
 ?>
 
