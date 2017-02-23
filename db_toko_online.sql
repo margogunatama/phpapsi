@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2017 at 12:08 PM
+-- Generation Time: Feb 23, 2017 at 04:38 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -166,25 +166,6 @@ INSERT INTO `tb_pelanggan` (`id`, `username`, `password`, `nama`, `email`, `alam
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_status_pembayaran`
---
-
-CREATE TABLE `tb_status_pembayaran` (
-  `id` int(11) NOT NULL,
-  `status_pembayaran` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_status_pembayaran`
---
-
-INSERT INTO `tb_status_pembayaran` (`id`, `status_pembayaran`) VALUES
-(1, 'ON_HOLD'),
-(2, 'PAID');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tb_transaksi`
 --
 
@@ -193,7 +174,6 @@ CREATE TABLE `tb_transaksi` (
   `keranjang_id` int(11) NOT NULL,
   `metode_id` int(11) NOT NULL,
   `total_keseluruhan` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
   `pelanggan_id` int(11) NOT NULL,
   `tanggal_beli` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -249,20 +229,13 @@ ALTER TABLE `tb_pelanggan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_status_pembayaran`
---
-ALTER TABLE `tb_status_pembayaran`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
   ADD PRIMARY KEY (`id`),
   ADD KEY `transaksi_id` (`keranjang_id`),
   ADD KEY `metode_id` (`metode_id`),
-  ADD KEY `user_id` (`pelanggan_id`),
-  ADD KEY `status` (`status`);
+  ADD KEY `user_id` (`pelanggan_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -304,11 +277,6 @@ ALTER TABLE `tb_metode_pembayaran`
 ALTER TABLE `tb_pelanggan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `tb_status_pembayaran`
---
-ALTER TABLE `tb_status_pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
@@ -341,8 +309,7 @@ ALTER TABLE `tb_keranjang`
 --
 ALTER TABLE `tb_transaksi`
   ADD CONSTRAINT `tb_transaksi_ibfk_2` FOREIGN KEY (`keranjang_id`) REFERENCES `tb_keranjang` (`id`),
-  ADD CONSTRAINT `tb_transaksi_ibfk_3` FOREIGN KEY (`metode_id`) REFERENCES `tb_metode_pembayaran` (`id`),
-  ADD CONSTRAINT `tb_transaksi_ibfk_4` FOREIGN KEY (`status`) REFERENCES `tb_status_pembayaran` (`id`);
+  ADD CONSTRAINT `tb_transaksi_ibfk_3` FOREIGN KEY (`metode_id`) REFERENCES `tb_metode_pembayaran` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
