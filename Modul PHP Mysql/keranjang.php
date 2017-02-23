@@ -8,7 +8,7 @@
 		background-color: #003D40;
 	  	border-bottom: 1px solid #ddd;
 		color: white;
-	}	
+	}
 
 	table{
 		margin-left: 32%;
@@ -26,7 +26,7 @@
 <!-- Contain -->
 
 <div class="main">
-	
+
 	<table>
 	<caption><h4>Keranjang Belanja Anda</h4></caption>
 		<tr>
@@ -41,10 +41,10 @@
 			<td>RAM</td>
 			<td>1</td>
 			<td>Rp. 400.000</td>
-			<td><button>Tambah</button></td>
 			<td><button>Hapus</button></td>
 		</tr>
 	</table>
+	<button>Beli</button>
 </div>
 
 <!-- End Contain -->

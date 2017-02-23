@@ -44,9 +44,9 @@
 		<?php
 		if(isset($_GET['kategori_id'])){
 			$selected_kategori_id = $_GET['kategori_id'];
-			$sql = "SELECT * FROM tb_barang WHERE kategori_id='".$selected_kategori_id."' ORDER BY kode_barang DESC LIMIT 15";
+			$sql = "SELECT * FROM tb_barang WHERE kategori_id='".$selected_kategori_id."' ORDER BY id DESC LIMIT 15";
 		}else{
-			$sql = "SELECT * FROM tb_barang ORDER BY kode_barang DESC LIMIT 15";
+			$sql = "SELECT * FROM tb_barang ORDER BY id DESC LIMIT 15";
 		}
 		$result = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($result) > 0) {
@@ -56,10 +56,10 @@
 				$get_link = $link_server."/phpapsi/Modul%20PHP%20Mysql/masuk_keranjang.php?barang_id=".$row[0];
 				?>
 				<div class="card">
-					<h4><b><?php echo $row[2]; ?></b></h4>
+					<h4><b><?php echo $row[1]; ?></b></h4>
 					<img src="">
 					<div class="content">
-						<p>Harga : <?php echo $row[3]; ?></p>
+						<p>Harga : <?php echo $row[2]; ?></p>
 						<button><a href="<?php echo $get_link; ?>">Beli</a></button>
 					</div>
 				</div>
