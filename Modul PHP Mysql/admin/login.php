@@ -25,7 +25,7 @@
 	 				window.alert('salah');
 	 			</script>";
  }
- $conn->close();
+ mysqli_close($conn);
 }
 ?>
 

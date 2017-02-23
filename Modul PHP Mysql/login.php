@@ -13,7 +13,7 @@
  $count = mysqli_num_rows($query); // if email/password are correct returns must be 1 row
 
  if (password_verify($password, $row['password']) && $count==1) {
-  // header("Location: home.php");
+  header("Location: index.php");
 	// $msg = "<div class='alert alert-success'>
   //    <span class='glyphicon glyphicon-info-sign'></span> &nbsp; Access Granted !
   //   </div>";
@@ -27,7 +27,7 @@
 	//  			</script>";
 	echo "salah";
  }
- $conn->close();
+  mysqli_close($conn);
 }
 ?>
 
