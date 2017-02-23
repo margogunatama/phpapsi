@@ -28,5 +28,5 @@
       1)";
     $result_insertDetailKeranjang = mysqli_query($conn,$sql_insertDetailKeranjang);
     if($result_insertDetailKeranjang){echo "insertDetailKeranjangDONE<br>";}else{echo "insertDetailKeranjangFAIL<br>";}
-
+    header('Location: '.$link_server."/phpapsi/Modul%20PHP%20Mysql/keranjang.php");
   ?>
