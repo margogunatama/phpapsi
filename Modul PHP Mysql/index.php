@@ -42,7 +42,7 @@
 	<div class="container">
 		<h3>Belanja dengan Kenikmatan</h3>
 		<?php
-			$sql = "SELECT * FROM tb_barang ORDER BY kode_barang DESC LIMIT 3";
+			$sql = "SELECT * FROM tb_barang ORDER BY kode_barang DESC LIMIT 15";
 			$result = mysqli_query($mysqli, $sql);
 			if (mysqli_num_rows($result) > 0) {
 				// output data of each row
@@ -64,47 +64,6 @@
 				echo "0 results";
 			}
 		?>
-		<div class="card">
-			<h4><b>aaa</b></h4>
-			<img src="">
-			<div class="content">
-				<p>Harga : bb</p>
-				<button><a href="">Beli</a></button>
-			</div>
-		</div>
-		<div class="card">
-			<h4><b>aaa</b></h4>
-			<img src="">
-			<div class="content">
-				<p>Harga : bb</p>
-				<button><a href="">Beli</a></button>
-			</div>
-		</div>
-		<div class="card">
-			<h4><b>aaa</b></h4>
-			<img src="">
-			<div class="content">
-				<p>Harga : bb</p>
-				<button><a href="">Beli</a></button>
-			</div>
-		</div>
-		<div class="card">
-			<h4><b>aaa</b></h4>
-			<img src="">
-			<div class="content">
-				<p>Harga : bb</p>
-				<button><a href="">Beli</a></button>
-			</div>
-		</div>
-		<div class="card">
-			<h4><b>aaa</b></h4>
-			<img src="">
-			<div class="content">
-				<p>Harga : bb</p>
-				<button><a href="">Beli</a></button>
-			</div>
-		</div>
-
 	</div>
 	<!-- End Konten -->
 
