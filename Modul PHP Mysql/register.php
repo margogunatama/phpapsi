@@ -21,19 +21,19 @@ if(isset($_POST['btn-signup'])) {
 
   if (mysqli_query($conn,$query)) {
    echo "<script>
- 				 window.alert('ANJAAY');
+ 				 window.alert('Account is Created');
          window.location='login.php';
  			  </script>";
 
   }else {
    echo "<script>
- 				 window.alert('gagal');
+ 				 window.alert('Failed, Try Again');
  			 </script>";
   }
 
  } else {
 echo "<script>
-       window.alert('email sudah terpakai');
+       window.alert('Email has already define by someone.');
      </script>";
   //
   // $msg = "<div class='alert alert-danger'>
@@ -50,9 +50,8 @@ echo "<script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Registrasi</title>
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-<link rel="stylesheet" href="style.css" type="text/css" />
+
+<link rel="stylesheet" href="css/login.css" type="text/css" />
 
 </head>
 <body>
@@ -100,10 +99,7 @@ echo "<script>
       <hr />
 
         <div class="form-group">
-            <button type="submit" class="btn btn-default" name="btn-signup">
-      <span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account
-   </button>
-            <a href="login.php" class="btn btn-default" style="float:right;">Log In Here</a>
+            <button type="submit" class="btn btn-default" name="btn-signup">Create Account</button>
         </div>
 
       </form>

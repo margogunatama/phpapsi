@@ -1,12 +1,6 @@
 body {
-  font-family: QuickSandBook;
   font-size: large;
-  background-image: url(../images/bg.jpg);
-}
-
-@font-face {
-	font-family: QuickSandBook;
-	src: url('../fonts/quicksand_book.otf');
+  background-color: #20403E;
 }
 
 hr {
@@ -15,6 +9,7 @@ hr {
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 20px;
+  color: white;
 
 }
 h2 {
@@ -29,15 +24,15 @@ label {
 
 /* Form */
 form {
-  position: fixed;
-  margin-top: -200px;
+  position: absolute;
+  margin-top: -300px;
   margin-left: -200px;
   padding-bottom: 20px;
   width: 400px;
   height: auto;
   left: 50%;
   top: 50%;
-  background-color: #030C11;
+  background-color: #7FFFFA;
   border: 2px #225869;
   box-shadow: 3px 3px 10px;
   -webkit-border-radius:6px 6px 0px 0px;
@@ -92,10 +87,9 @@ input, textarea {
 
 /* Set a style for all buttons */
 button {
-  background-color: #225869;
+  background-color: #3F7F7D;
   margin-top:15px;
   margin-bottom:15px;
-  background-color:#1DA8D1;
   padding: 12px 45px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
@@ -136,7 +130,6 @@ img.avatar {
   background-color: #030C11;
 }
 
-
 span.psw {
     text-align: center;
     padding-top: 20px;
@@ -146,10 +139,5 @@ a {
   color: #fff;
 }
 
-@media screen and (max-width: 300px) {
-    span.psw {
-        display: block;
-        float: none;
-    }
 
 }

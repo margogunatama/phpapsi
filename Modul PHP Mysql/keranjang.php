@@ -15,6 +15,15 @@ WHERE tb_keranjang.pelanggan_id = $session_pelanggan_id AND tb_keranjang.isused 
 <head>
 	<title>Keranjang | Toko Online</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+<<<<<<< HEAD
+	<style type="text/css">
+	th{
+		background-color: #003D40;
+	  border-bottom: 1px solid #ddd;
+		color: white;
+	}
+=======
+>>>>>>> origin/master
 
 </head>
 <body>

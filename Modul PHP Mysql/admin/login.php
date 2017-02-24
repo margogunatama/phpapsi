@@ -32,7 +32,7 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 <form method="post" action="login.php">
