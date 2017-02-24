@@ -1,4 +1,39 @@
 <!DOCTYPE html>
+<?php
+  include('koneksi.php');
+  if(isset($_GET['id'])){
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
+    $query = "DELETE from tb_barang WHERE id = $id";
+    $result = mysqli_query($conn, $query);
+    if($result){
+      //header("Refresh:0");
+    }else{
+      echo "Data gagal dihapus";
+    }
+  }else if(isset($_POST['btnUpdate'])){
+                            $id = $_POST['id_barang'];
+                            $nama_barang = $_POST['nama_barang'];
+                            $harga = $_POST['harga'];
+                            $stok = $_POST['stok'];
+                            $id_kategori = $_POST['kategori'];
+                            //var_dump("INI id nya = " + $id);
+                            $query = "UPDATE tb_barang SET " .
+                            "nama_barang='$nama_barang', ".
+                            "harga=$harga, ".
+                            "stok=$stok, ".
+                            "kategori_id=$id_kategori ". 
+                            "WHERE id=$id";
+
+                            //var_dump("INI query nya = " + $query);
+                            $result = mysqli_query($conn, $query);
+                            //$num = mysqli_affected_rows();
+                            if($result){
+//                              echo'Data berhasil diupdate';
+                            }else{
+                              echo'Data gagal diupdate';
+                            }
+                          }
+?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,30 +62,53 @@
                 </div>
                 <div class="content">
                     <h3>Master Data Barang</h3>
-                    <form action="form-barang-insert.php" method="post">
-                    <button class="button" style="vertical-align:middle"><span>New </span></button>
-                    </form>
+                    <a class="button" href="form-barang-insert.php" style="vertical-align:middle"><span>New </span></a>
                     <div class="scrolltable">
+                    <?php
+                      $query = "select a.*, b.nama_kategori from tb_barang as a 
+                                INNER JOIN tb_kategori_barang as b ON a.kategori_id = b.id";
+                         $result = mysqli_query($conn, $query);
+                         if($result){
+                    ?>
                       <table>
                           <tr>
                               <th>Kode Barang</th>
                               <th>Nama Barang</th>
                               <th>Harga</th>
                               <th>Stok</th>
-                              <th>ID Kategori</th>
+                              <th>Kategori</th>
                               <th></th>
                               <th></th>
                           </tr>
+                          <?php
+                            while($row = mysqli_fetch_row($result)){
+                          ?>
                           <tr>
-                              <td>ABC</td>
-                              <td>Kecap ABC</td>
-                              <td>20000</td>
-                              <td>20</td>
-                              <td>ABC</td>
-                              <td><button class='button' type='vertical-align:middle'>Edit</button></td>
-                              <td><button class='button' type='vertical-align:middle'>Delete</button></td>
+                            <?php
+                                $id = $row[0];
+                                $nama_barang = $row[1];
+                                $harga = $row[2];
+                                $stok = $row[3];
+                                $kategori = $row[5];
+                            ?>
+                              <td><?php echo $id; ?></td>
+                              <td><?php echo $nama_barang; ?></td>
+                              <td><?php echo $harga; ?></td>
+                              <td><?php echo $stok; ?></td>
+                              <td><?php echo $kategori; ?></td>
+                              <td><a class='button' href=<?php echo "form-barang-update.php?id=$id";?> type='vertical-align:middle'>Edit</a></td>
+                              <td><a class='button' href=<?php echo "dashboard-barang.php?id=$id"; ?> type='vertical-align:middle'>Delete</a></td>
                           </tr>
+                          <?php
+                          }
+                        ?>
                     </table>
+                    <?php
+                    mysqli_free_result($result);
+                  }
+
+                  mysqli_close($conn);
+                    ?>
                   </div>
                 </div>
             </div>

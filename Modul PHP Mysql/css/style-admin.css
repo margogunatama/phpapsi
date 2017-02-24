@@ -216,3 +216,7 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
+
+input:disabled {
+    background: #dddddd;
+}

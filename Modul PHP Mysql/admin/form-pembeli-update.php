@@ -26,31 +26,25 @@
                   </ul>
                 </div>
                 <div class="content">
-                    <h3>Master Data Pembeli</h3>
-                    <form action="form-pembeli-insert.php" method="post">
-                    <button class="button" style="vertical-align:middle"><span>New </span></button>
+                  <h3>Update Pembeli</h3>
+                  <form action="#" method="POST">
+                        <div class="labelleft"><label><b>User ID</b></label></div>
+                        <div class="labelright"><input type="text" placeholder="User ID" name="" disabled></div>
+                        </br>
+                        <div class="labelleft"><label><b>Nama</b></label></div>
+                        <div class="labelright"><input type="text" placeholder="Nama" name="" required></div>
+                        </br>
+                        <div class="labelleft"><label><b>Email</b></label></div>
+                        <div class="labelright"><input type="text" placeholder="Email" name="" required></div>
+                        </br>
+                        <div class="labelleft"><label><b>Alamat</b></label></div>
+                        <div class="labelright"><input type="text" placeholder="Alamat" name="" required></div>
+                        </br>
+                        <div class="labelleft"><label><b>Telepon</b></label></div>
+                        <div class="labelright"><input type="text" placeholder="Telepon" name="" required></div>
+                        </br>
+                        <button class='button' type='vertical-align:middle'>Update</button>
                     </form>
-                    <div class="scrolltable">
-                    <table>
-                      <tr>
-                          <th>Nama</th>
-                          <th>Email</th>
-                          <th>Alamat</th>
-                          <th>Telepon</th>
-                          <th>User ID</th>
-                          <th></th>
-                          <th></th>
-                      </tr>
-                      <tr>
-                          <td>Qalbins</td>
-                          <td>qalbins@gmail.com</td>
-                          <td>Jalan Sukabirus</td>
-                          <td>08099787838</td>
-                          <td>U908</td>
-                          <td><a href="form-pembeli-update.php"><button class='button' type='vertical-align:middle'>Edit</button></a></td>
-                          <td><button class='button' type='vertical-align:middle'>Delete</button></td>
-                      </tr>
-                    </table>
                   </div>
                 </div>
             </div>

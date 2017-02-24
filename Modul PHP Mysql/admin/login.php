@@ -46,8 +46,6 @@
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 		<input type="submit" name="btn-login" value="Login">
-    <hr>
-    <span class="psw"><a href="#">Don't have an account?</a></span>
   </div>
 </form>
 </body>

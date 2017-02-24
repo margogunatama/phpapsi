@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/style-admin.css">
+        <link rel="stylesheet" type="text/css" href="../css/style-admin.css">
     </head>
     <body>
         <div class="container">
@@ -11,7 +11,7 @@
                 <h2>Admin</h2>
               </div>
               <div class="right-bar">
-                <a href="login.html">Logout</a>
+                <a href="login.php">Logout</a>
               </div>
             </div>
 
