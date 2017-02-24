@@ -64,7 +64,7 @@ WHERE tb_keranjang.pelanggan_id = $session_pelanggan_id;");
 <?php } ?>
 	</table>
   <br/>
-	<button>Beli</button>
+	<a href="checkout.php"><button>Beli</button></a>
 </center>
 </div>
 
