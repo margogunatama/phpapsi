@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 23, 2017 at 04:38 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Host: localhost
+-- Generation Time: 24 Feb 2017 pada 03.06
+-- Versi Server: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_admin`
+-- Struktur dari tabel `tb_admin`
 --
 
 CREATE TABLE `tb_admin` (
@@ -34,10 +34,17 @@ CREATE TABLE `tb_admin` (
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_admin`
+--
+
+INSERT INTO `tb_admin` (`id`, `username`, `password`, `nama`, `email`) VALUES
+(1, 'admin', '$2y$10$T3EjuIj2Wm46t1dz8yqcd.rpMM6PCx1koPxylw7fZAg7oQxb7umYC', 'administrator', 'admin@kekomputeran.com');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_barang`
+-- Struktur dari tabel `tb_barang`
 --
 
 CREATE TABLE `tb_barang` (
@@ -49,7 +56,7 @@ CREATE TABLE `tb_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_barang`
+-- Dumping data untuk tabel `tb_barang`
 --
 
 INSERT INTO `tb_barang` (`id`, `nama_barang`, `harga`, `stok`, `kategori_id`) VALUES
@@ -62,7 +69,7 @@ INSERT INTO `tb_barang` (`id`, `nama_barang`, `harga`, `stok`, `kategori_id`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_detail_keranjang`
+-- Struktur dari tabel `tb_detail_keranjang`
 --
 
 CREATE TABLE `tb_detail_keranjang` (
@@ -73,16 +80,17 @@ CREATE TABLE `tb_detail_keranjang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_detail_keranjang`
+-- Dumping data untuk tabel `tb_detail_keranjang`
 --
 
 INSERT INTO `tb_detail_keranjang` (`id`, `keranjang_id`, `barang_id`, `jumlah`) VALUES
-(1, 20, 5, 1);
+(1, 20, 5, 1),
+(2, 20, 5, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kategori_barang`
+-- Struktur dari tabel `tb_kategori_barang`
 --
 
 CREATE TABLE `tb_kategori_barang` (
@@ -91,7 +99,7 @@ CREATE TABLE `tb_kategori_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_kategori_barang`
+-- Dumping data untuk tabel `tb_kategori_barang`
 --
 
 INSERT INTO `tb_kategori_barang` (`id`, `nama_kategori`) VALUES
@@ -104,7 +112,7 @@ INSERT INTO `tb_kategori_barang` (`id`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_keranjang`
+-- Struktur dari tabel `tb_keranjang`
 --
 
 CREATE TABLE `tb_keranjang` (
@@ -115,7 +123,7 @@ CREATE TABLE `tb_keranjang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_keranjang`
+-- Dumping data untuk tabel `tb_keranjang`
 --
 
 INSERT INTO `tb_keranjang` (`id`, `pelanggan_id`, `total`, `isused`) VALUES
@@ -124,7 +132,7 @@ INSERT INTO `tb_keranjang` (`id`, `pelanggan_id`, `total`, `isused`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_metode_pembayaran`
+-- Struktur dari tabel `tb_metode_pembayaran`
 --
 
 CREATE TABLE `tb_metode_pembayaran` (
@@ -133,7 +141,7 @@ CREATE TABLE `tb_metode_pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_metode_pembayaran`
+-- Dumping data untuk tabel `tb_metode_pembayaran`
 --
 
 INSERT INTO `tb_metode_pembayaran` (`id`, `metode_pembayaran`) VALUES
@@ -143,7 +151,7 @@ INSERT INTO `tb_metode_pembayaran` (`id`, `metode_pembayaran`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pelanggan`
+-- Struktur dari tabel `tb_pelanggan`
 --
 
 CREATE TABLE `tb_pelanggan` (
@@ -157,16 +165,17 @@ CREATE TABLE `tb_pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_pelanggan`
+-- Dumping data untuk tabel `tb_pelanggan`
 --
 
 INSERT INTO `tb_pelanggan` (`id`, `username`, `password`, `nama`, `email`, `alamat`, `telepon`) VALUES
-(1, 'abid', '', 'abid', 'abid@gmail.com', 'Graha raya bintaro, cluster angrek loka', 87882266);
+(1, 'abid', '', 'abid', 'abid@gmail.com', 'Graha raya bintaro, cluster angrek loka', 87882266),
+(2, 'admin', '$2y$10$T3EjuIj2Wm46t1dz8yqcd.rpMM6PCx1koPxylw7fZAg7oQxb7umYC', 'admin', 'admin@admin.com', 'admin', 1739841);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_transaksi`
+-- Struktur dari tabel `tb_transaksi`
 --
 
 CREATE TABLE `tb_transaksi` (
@@ -245,7 +254,7 @@ ALTER TABLE `tb_transaksi`
 -- AUTO_INCREMENT for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tb_barang`
 --
@@ -255,7 +264,7 @@ ALTER TABLE `tb_barang`
 -- AUTO_INCREMENT for table `tb_detail_keranjang`
 --
 ALTER TABLE `tb_detail_keranjang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tb_kategori_barang`
 --
@@ -275,37 +284,37 @@ ALTER TABLE `tb_metode_pembayaran`
 -- AUTO_INCREMENT for table `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tb_barang`
+-- Ketidakleluasaan untuk tabel `tb_barang`
 --
 ALTER TABLE `tb_barang`
   ADD CONSTRAINT `tb_barang_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `tb_kategori_barang` (`id`);
 
 --
--- Constraints for table `tb_detail_keranjang`
+-- Ketidakleluasaan untuk tabel `tb_detail_keranjang`
 --
 ALTER TABLE `tb_detail_keranjang`
   ADD CONSTRAINT `tb_detail_keranjang_ibfk_1` FOREIGN KEY (`keranjang_id`) REFERENCES `tb_keranjang` (`id`),
   ADD CONSTRAINT `tb_detail_keranjang_ibfk_2` FOREIGN KEY (`barang_id`) REFERENCES `tb_barang` (`id`);
 
 --
--- Constraints for table `tb_keranjang`
+-- Ketidakleluasaan untuk tabel `tb_keranjang`
 --
 ALTER TABLE `tb_keranjang`
   ADD CONSTRAINT `tb_keranjang_ibfk_1` FOREIGN KEY (`pelanggan_id`) REFERENCES `tb_pelanggan` (`id`);
 
 --
--- Constraints for table `tb_transaksi`
+-- Ketidakleluasaan untuk tabel `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
   ADD CONSTRAINT `tb_transaksi_ibfk_2` FOREIGN KEY (`keranjang_id`) REFERENCES `tb_keranjang` (`id`),

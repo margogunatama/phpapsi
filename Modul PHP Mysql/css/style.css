@@ -49,10 +49,34 @@ footer a{
 	color: black;
 }
 
+<<<<<<< HEAD
+=======
+button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+button:hover {
+	background-color: #357f38; /* Green */
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+>>>>>>> origin/master
 .container{
 	width: 75%;
 	margin-left: auto;
 	/*background: yellow;*/
+}
+.main{
+	width: 75%;
+	margin: 0 auto;
+	padding: 1%;
+	min-height: 600px;
 }
 
 .sidebar{
@@ -83,7 +107,10 @@ footer a{
 	padding: 2px 16px 10px;
 	border-radius: 5px;
 	text-align: center;
-	float: left;
+	display: inline-block;
+}
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 button{
@@ -96,4 +123,31 @@ button{
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
+}
+
+table.box-style {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size:12px;
+	min-width:480px;
+	text-align:left;
+	border-collapse:collapse;
+	margin-bottom:25px;
+}
+table.box-style th {
+	font-size:14px;
+	font-weight:normal;
+	background:#ccc;
+	border-top:4px solid #ddd;
+	border-bottom:1px solid #fff;
+	color:#666666;
+	padding:10px;
+}
+table.box-style td {
+	background:#f9f9f9;
+	border-bottom:1px solid #fff;
+	color:#999;border-top:1px solid transparent;
+	padding:8px 10px;
+}
+table.box-style tr:hover td {
+	background:#eee;color:#444;
 }
