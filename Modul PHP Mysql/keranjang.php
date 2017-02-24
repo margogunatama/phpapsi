@@ -18,7 +18,7 @@ WHERE tb_keranjang.pelanggan_id = $session_pelanggan_id;");
 	<style type="text/css">
 	th{
 		background-color: #003D40;
-	  	border-bottom: 1px solid #ddd;
+	  border-bottom: 1px solid #ddd;
 		color: white;
 	}
 
