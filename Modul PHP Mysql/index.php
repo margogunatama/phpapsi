@@ -57,10 +57,9 @@
 				?>
 				<div class="card">
 					<h4><b><?php echo $row[1]; ?></b></h4>
-					<img src="">
 					<div class="content">
 						<p>Harga : <?php echo $row[2]; ?></p>
-						<button><a href="<?php echo $get_link; ?>">Beli</a></button>
+						<a href="<?php echo $get_link; ?>"><button>Beli</button></a>
 					</div>
 				</div>
 				<?php
