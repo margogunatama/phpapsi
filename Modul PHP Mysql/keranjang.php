@@ -7,7 +7,7 @@
 FROM tb_barang
 INNER JOIN tb_detail_keranjang ON tb_detail_keranjang.barang_id = tb_barang.id
 INNER JOIN tb_keranjang ON tb_detail_keranjang.keranjang_id = tb_keranjang.id
-WHERE tb_keranjang.pelanggan_id = $session_pelanggan_id;");
+WHERE tb_keranjang.pelanggan_id = $session_pelanggan_id AND tb_keranjang.isused = 1");
 ?>
 
 <!DOCTYPE html>

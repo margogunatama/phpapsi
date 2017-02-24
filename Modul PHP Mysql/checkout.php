@@ -7,7 +7,7 @@ $sql_keranjang = mysqli_query($conn,"SELECT tb_barang.nama_barang, tb_detail_ker
 FROM tb_barang
 INNER JOIN tb_detail_keranjang ON tb_detail_keranjang.barang_id = tb_barang.id
 INNER JOIN tb_keranjang ON tb_detail_keranjang.keranjang_id = tb_keranjang.id
-WHERE tb_keranjang.pelanggan_id = $session_pelanggan_id;");
+WHERE tb_keranjang.pelanggan_id = $session_pelanggan_id AND tb_keranjang.isused = 1;");
 
 $sql_pelanggan = mysqli_query($conn, "SELECT tb_keranjang.id, tb_pelanggan.nama, tb_keranjang.pelanggan_id
   FROM tb_keranjang
@@ -103,7 +103,7 @@ $sql_pelanggan = mysqli_query($conn, "SELECT tb_keranjang.id, tb_pelanggan.nama,
             <input type="hidden" name="pelanggan_id" value="<?php echo $pelanggan_id; ?>">
             <input type="hidden" name="tanggal_beli" value="<?php echo $today; ?>">
             <p>Pilih Metode Pembayaran :
-              <select name="metode_pembayaran">
+              <select name="metode_id">
                 <?php
                 if (mysqli_num_rows($sql_kategori) > 0) {
                   // output data of each row
@@ -114,7 +114,7 @@ $sql_pelanggan = mysqli_query($conn, "SELECT tb_keranjang.id, tb_pelanggan.nama,
                   }?>
                 </select>
               </p>
-            <input type="submit" name="button">Checkout</button>
+            <input type="submit" name="button">
             </form>
           </center>
         </div>
