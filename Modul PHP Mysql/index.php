@@ -40,7 +40,7 @@
 
 	<!-- Konten -->
 	<div class="container">
-		<h3>Belanja dengan Kenikmatan</h3>
+		<h3>Katalog Belanja PT.BPAD</h3>
 		<?php
 		if(isset($_GET['kategori_id'])){
 			$selected_kategori_id = $_GET['kategori_id'];
