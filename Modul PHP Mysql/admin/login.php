@@ -32,7 +32,7 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
 <form method="post" action="login.php">
@@ -41,9 +41,9 @@
     <img src="images/Logo1.png" width="100px" height="100px" alt="Avatar" class="avatar">
   </div>
   <br>
-    <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-    <label><b>Password</b></label>
+    <label><b>Username</b></label><br>
+    <input type="text" placeholder="Enter Username" name="uname" required><br>
+    <label><b>Password</b></label><br>
     <input type="password" placeholder="Enter Password" name="psw" required>
 		<input type="submit" name="btn-login" value="Login">
   </div>

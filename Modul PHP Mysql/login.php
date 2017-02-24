@@ -51,9 +51,7 @@
     <img src="images/Logo1.png" width="100px" height="100px" alt="Avatar" class="avatar">
   </div>
   <br>
-    <label><b>Username</b></label><br>
     <input type="text" placeholder="Enter Username" name="uname" required><br>
-    <label><b>Password</b></label><br>
     <input type="password" placeholder="Enter Password" name="psw" required><br>
 		<input type="submit" name="btn-login" value="Login">
     <hr>

@@ -24,10 +24,11 @@ label {
 
 /* Form */
 form {
+  background: #7FFFFA;
   position: absolute;
-  margin-top: -300px;
+  margin-top: -240px;
   margin-left: -200px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   width: 400px;
   height: auto;
   left: 50%;
