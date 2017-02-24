@@ -1,8 +1,8 @@
 <?php
   include 'koneksi.php';
+  include 'islogin.php';
 
   //session
-	$session_pelanggan_id = 1;
   $sql_keranjang = mysqli_query($conn,"SELECT tb_barang.nama_barang, tb_detail_keranjang.jumlah, (tb_detail_keranjang.jumlah*tb_barang.harga), tb_detail_keranjang.barang_id
 FROM tb_barang
 INNER JOIN tb_detail_keranjang ON tb_detail_keranjang.barang_id = tb_barang.id

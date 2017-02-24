@@ -7,16 +7,24 @@
  $username = strip_tags($_POST['uname']);
  $password = strip_tags($_POST['psw']);
 
- $query = mysqli_query($conn, "SELECT username, password FROM tb_pelanggan WHERE username='$username'");
+ $query = mysqli_query($conn, "SELECT username, password, id FROM tb_pelanggan WHERE username='$username'");
  $row=mysqli_fetch_array($query);
 
  $count = mysqli_num_rows($query); // if email/password are correct returns must be 1 row
 
  if (password_verify($password, $row['password']) && $count==1) {
-  header("Location: index.php");
+
+	ob_start();
+	session_start();
+	$_SESSION['is_logged'] = true;
+	$query_forSession = mysqli_query($conn,"SELECT id, email FROM tb_pelanggan WHERE id = $row[2]");
+	$row_forSession = mysqli_fetch_array($query_forSession);
+	$_SESSION['pelanggan_id'] = $row_forSession[0];
+	$_SESSION['email_pelanggan'] = $row_forSession[1];
+	header("Location: index.php");
 	// $msg = "<div class='alert alert-success'>
-  //    <span class='glyphicon glyphicon-info-sign'></span> &nbsp; Access Granted !
-  //   </div>";
+	//    <span class='glyphicon glyphicon-info-sign'></span> &nbsp; Access Granted !
+	//   </div>";
 	// echo "<script>
 	// 			 window.alert('bener');
 	// 		 </script>";

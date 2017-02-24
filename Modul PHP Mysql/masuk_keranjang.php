@@ -1,11 +1,11 @@
 <?php
   include 'koneksi.php';
+  include 'islogin.php';
   //Cek apakah parameter kode_barang ada di url
   if(!isset($_GET['barang_id'])){
     header('Location: '.$link_server."/phpapsi/Modul%20PHP%20Mysql/");
   }
     //Gunakan session untuk mengambil pelanggan_id yang sedang login
-    $session_pelanggan_id = "1";
     $barang_id = $_GET['barang_id'];
     //Cek(Query) apakah user ini memiliki transaksi aktif atau tidak
     $sql_cekUser = "SELECT id FROM tb_keranjang WHERE pelanggan_id = $session_pelanggan_id AND isused = 1";
