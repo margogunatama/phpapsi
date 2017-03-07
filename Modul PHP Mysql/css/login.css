@@ -1,6 +1,6 @@
 body {
   font-size: large;
-  background-color: #20403E;
+  background-color: #243740;
 }
 
 hr {
@@ -19,25 +19,22 @@ h2 {
 }
 
 label {
-  color: #fff;
+  color: #243740;
 }
 
 /* Form */
 form {
-  background: #7FFFFA;
   position: absolute;
-  margin-top: -240px;
+  margin-top: -300px;
   margin-left: -200px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   width: 400px;
   height: auto;
   left: 50%;
   top: 50%;
-  background-color: #7FFFFA;
+  background-color: #81C6E5;
   border: 2px #225869;
   box-shadow: 3px 3px 10px;
-  -webkit-border-radius:6px 6px 0px 0px;
-  -moz-border-radius:6px 6px 0px 0px;
   border-radius:6px 6px 6px 6px;
 }
 
@@ -73,7 +70,7 @@ input, textarea {
   width: 80%;
   max-width: 600px;
 }
-::-webkit-input-placeholder {
+/*::-webkit-input-placeholder {
    color: #34495E;
 }
 :-moz-placeholder {
@@ -84,14 +81,12 @@ input, textarea {
 }
 :-ms-input-placeholder {
    color: #FAFAFA;
-}
+}*/
 
 /* Set a style for all buttons */
 button {
-  background-color: #3F7F7D;
-  margin-top:15px;
-  margin-bottom:15px;
-  padding: 12px 45px;
+  background-color: #476E7F;
+  padding: 3%;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
@@ -128,7 +123,7 @@ img.avatar {
   -webkit-border-radius:6px 6px 0px 0px;
   -moz-border-radius:6px 6px 0px 0px;
   border-radius:6px 6px 0px 0px;
-  background-color: #030C11;
+  /*background-color: #030C11;*/
 }
 
 span.psw {
@@ -137,7 +132,7 @@ span.psw {
 }
 a {
   text-decoration: none;
-  color: #fff;
+  color: #243740;
 }
 
 

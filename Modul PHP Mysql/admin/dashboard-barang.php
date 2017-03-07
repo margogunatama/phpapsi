@@ -21,7 +21,7 @@
                             "nama_barang='$nama_barang', ".
                             "harga=$harga, ".
                             "stok=$stok, ".
-                            "kategori_id=$id_kategori ". 
+                            "kategori_id=$id_kategori ".
                             "WHERE id=$id";
 
                             //var_dump("INI query nya = " + $query);
@@ -65,12 +65,12 @@
                     <a class="button" href="form-barang-insert.php" style="vertical-align:middle"><span>New </span></a>
                     <div class="scrolltable">
                     <?php
-                      $query = "select a.*, b.nama_kategori from tb_barang as a 
+                      $query = "select a.*, b.nama_kategori from tb_barang as a
                                 INNER JOIN tb_kategori_barang as b ON a.kategori_id = b.id";
                          $result = mysqli_query($conn, $query);
                          if($result){
                     ?>
-                      <table>
+                      <table class="box-style">
                           <tr>
                               <th>Kode Barang</th>
                               <th>Nama Barang</th>

@@ -7,7 +7,7 @@
  $username = strip_tags($_POST['uname']);
  $password = strip_tags($_POST['psw']);
 
- $query = mysqli_query("SELECT username, password FROM tb_admin WHERE username='$username'");
+ $query = mysqli_query($conn, "SELECT username, password FROM tb_admin WHERE username='$username'");
  $row=mysqli_fetch_array($query);
 
  $count = mysqli_num_rows($query); // if email/password are correct returns must be 1 row

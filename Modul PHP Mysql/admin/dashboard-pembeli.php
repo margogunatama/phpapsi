@@ -1,4 +1,46 @@
 <!DOCTYPE html>
+
+<?php
+  include('koneksi.php');
+    if(isset($_GET['id'])){
+      $id = mysqli_real_escape_string($conn, $_GET['id']);
+      $query = "DELETE from tb_pelanggan WHERE id = $id";
+      $result = mysqli_query($conn, $query);
+      if($result){
+        //header("Refresh:0");
+      }else{
+        //echo "Data gagal dihapus";
+      }
+    } else if (isset($_POST['btnUpdate'])) {
+       $id = $_POST['id'];
+       $nama = $_POST['nama'];
+       $email = $_POST['email'];
+       $alamat = $_POST['alamat'];
+       $telepon = $_POST['telepon'];
+       $username = $_POST['username'];
+       // $password = $_POST['password'];
+       // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+       $query = "UPDATE tb_pelanggan SET ".
+          "nama = '$nama', ".
+          "email ='$email',".
+          "alamat ='$alamat',".
+          "telepon ='$telepon',".
+          "username ='$username' ".
+          "WHERE id = '$id'";
+
+           //var_dump("INI query nya = " + $query);
+           $result = mysqli_query($conn, $query);
+          //$num = mysqli_affected_rows();
+          if($result){
+          // echo'Data berhasil diupdate';
+          }else{
+            echo'Data gagal diupdate';
+         }
+    }
+
+ ?>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -31,26 +73,50 @@
                     <button class="button" style="vertical-align:middle"><span>New </span></button>
                     </form>
                     <div class="scrolltable">
-                    <table>
+
+                    <?php
+                      $query = "SELECT nama, email, alamat, telepon, id from tb_pelanggan";
+                         $result = mysqli_query($conn, $query);
+                         if($result){
+                    ?>
+                    <table class="box-style">
+
                       <tr>
                           <th>Nama</th>
                           <th>Email</th>
                           <th>Alamat</th>
                           <th>Telepon</th>
-                          <th>User ID</th>
-                          <th></th>
-                          <th></th>
+                          <th colspan="2">Actions</th>
                       </tr>
+                          <?php
+                            while($row = mysqli_fetch_row($result)){
+                          ?>
                       <tr>
-                          <td>Qalbins</td>
-                          <td>qalbins@gmail.com</td>
-                          <td>Jalan Sukabirus</td>
-                          <td>08099787838</td>
-                          <td>U908</td>
-                          <td><a href="form-pembeli-update.php"><button class='button' type='vertical-align:middle'>Edit</button></a></td>
-                          <td><button class='button' type='vertical-align:middle'>Delete</button></td>
+                        <?php
+                                $nama = $row[0];
+                                $email = $row[1];
+                                $alamat = $row[2];
+                                $telepon = $row[3];
+                                $id = $row[4];
+                        ?>
+                          <td><?php echo $nama; ?></td>
+                          <td><?php echo $email; ?></td>
+                          <td><?php echo $alamat; ?></td>
+                          <td><?php echo $telepon; ?></td>
+
+                          <td><a class='button' href=<?php echo "form-pembeli-update.php?id=$id";?> type='vertical-align:middle'>Edit</a></td>
+                          <!-- <td><a class='button' href=<?php echo "dashboard-pembeli.php?id=$id"; ?> type='vertical-align:middle'>Delete</a></td> -->
                       </tr>
+                      <?php
+                          }
+                        ?>
                     </table>
+                  <?php
+                    mysqli_free_result($result);
+                  }
+
+                  mysqli_close($conn);
+                    ?>
                   </div>
                 </div>
             </div>

@@ -132,7 +132,7 @@ li a:hover:not(.active) {
 /*footer*/
 .footer {
 	background-color: #03141E;
-	width: 100%;
+	/*width: 100%;*/
 	padding-top: 2.5%;
 }
 
@@ -219,4 +219,31 @@ input[type=submit] {
 
 input:disabled {
     background: #dddddd;
+}
+
+table.box-style {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size:12px;
+	min-width:480px;
+	text-align:left;
+	border-collapse:collapse;
+	margin-bottom:25px;
+}
+table.box-style th {
+	font-size:14px;
+	font-weight:normal;
+	background:#ccc;
+	border-top:4px solid #ddd;
+	border-bottom:1px solid #fff;
+	color:#666666;
+	padding:10px;
+}
+table.box-style td {
+	background:#f9f9f9;
+	border-bottom:1px solid #fff;
+	color:#999;border-top:1px solid transparent;
+	padding:8px 10px;
+}
+table.box-style tr:hover td {
+	background:#eee;color:#444;
 }

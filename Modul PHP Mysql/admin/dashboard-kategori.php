@@ -61,7 +61,7 @@
                          $result = mysqli_query($conn, $query);
                          if($result){
                       ?>
-                    <table>
+                    <table class="box-style">
                         <tr>
                             <th>Nama Kategori</th>
                             <th></th>

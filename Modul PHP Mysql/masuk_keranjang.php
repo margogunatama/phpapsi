@@ -21,11 +21,12 @@
       $result_newKeranjang = mysqli_query($conn, $sql_newKeranjang);
       if($result_newKeranjang){echo "newKeranjangDONE<br>";}else{echo "newKeranjangFAIL<br>";}
     }
-
+    $keranjang_id = mysqli_fetch_array($result_cekUser);
     $sql_insertDetailKeranjang = "INSERT INTO tb_detail_keranjang (keranjang_id, barang_id, jumlah) VALUES(
-      (SELECT id FROM tb_keranjang WHERE pelanggan_id = $session_pelanggan_id),
+      (SELECT id FROM tb_keranjang WHERE pelanggan_id = $session_pelanggan_id ORDER BY id DESC LIMIT 1),
       (SELECT id FROM tb_barang WHERE id = $barang_id),
       1)";
+      echo $sql_insertDetailKeranjang;
     $result_insertDetailKeranjang = mysqli_query($conn,$sql_insertDetailKeranjang);
     if($result_insertDetailKeranjang){echo "insertDetailKeranjangDONE<br>";}else{echo "insertDetailKeranjangFAIL<br>";}
     header('Location: '.$link_server."/phpapsi/Modul%20PHP%20Mysql/keranjang.php");

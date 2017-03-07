@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+  include('koneksi.php');
+  if(isset($_GET['id'])){
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
+    $query = "SELECT id, nama, email, alamat, telepon, username from tb_pelanggan WHERE id = $id";
+  }
+?>
+<html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,23 +35,41 @@
                 </div>
                 <div class="content">
                   <h3>Update Pembeli</h3>
-                  <form action="#" method="POST">
+                  <form action="dashboard-pembeli.php" method="POST">
+
+                          <?php
+                            if(isset($_GET['id'])){
+                              $result = mysqli_query($conn, $query);
+                               if($result){
+                                  while($data_pembeli = mysqli_fetch_row($result)){
+                          ?>
+
+                        <div class="labelright"><input type="hidden" value=<?php echo $data_pembeli[0]; ?>  name="id"></div>
+                        </br>
                         <div class="labelleft"><label><b>User ID</b></label></div>
-                        <div class="labelright"><input type="text" placeholder="User ID" name="" disabled></div>
+                        <div class="labelright"><input type="text" value=<?php echo $data_pembeli[0]; ?> name="id_pembeli" disabled></div>
                         </br>
                         <div class="labelleft"><label><b>Nama</b></label></div>
-                        <div class="labelright"><input type="text" placeholder="Nama" name="" required></div>
+                        <div class="labelright"><input type="text" value=<?php echo $data_pembeli[1]; ?>   name="nama" required></div>
                         </br>
                         <div class="labelleft"><label><b>Email</b></label></div>
-                        <div class="labelright"><input type="text" placeholder="Email" name="" required></div>
+                        <div class="labelright"><input type="text" value=<?php echo $data_pembeli[2]; ?>  name="email" required></div>
                         </br>
                         <div class="labelleft"><label><b>Alamat</b></label></div>
-                        <div class="labelright"><input type="text" placeholder="Alamat" name="" required></div>
+                        <div class="labelright"><input type="text" value=<?php echo $data_pembeli[3]; ?>  name="alamat" required></div>
                         </br>
                         <div class="labelleft"><label><b>Telepon</b></label></div>
-                        <div class="labelright"><input type="text" placeholder="Telepon" name="" required></div>
+                        <div class="labelright"><input type="text" value=<?php echo $data_pembeli[4]; ?>  name="telepon" required></div>
                         </br>
-                        <button class='button' type='vertical-align:middle'>Update</button>
+                        <div class="labelleft"><label><b>Username</b></label></div>
+                        <div class="labelright"><input type="text" value=<?php echo $data_pembeli[5]; ?>  name="username" required></div>
+                        </br>
+                          <?php
+                              }
+                            }
+                          }
+                            ?>
+                        <button class='button' name="btnUpdate" type='vertical-align:middle'>Update</button>
                     </form>
                   </div>
                 </div>

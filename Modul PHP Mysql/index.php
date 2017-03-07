@@ -12,7 +12,7 @@
 
 	<!-- Header -->
 	<header>
-		<h1>Selamat Datang di Kekomputeran</h1>
+		<marquee><h1>Selamat Datang di Toko Kekomputeran APSI TI</h1></marquee>
 	</header>
 	<!-- End Header -->
 
@@ -20,6 +20,7 @@
 	<div class="sidebar">
 		<table>
 			<tr><td>Kategori Barang<hr></td></tr>
+			<tr><td><a href='index.php'>Semua Kategori</a></td></tr>
 			<?php
 			$sql = "SELECT * FROM tb_kategori_barang";
 			$result = mysqli_query($conn, $sql);
@@ -40,7 +41,7 @@
 
 	<!-- Konten -->
 	<div class="container">
-		<h3>Katalog Belanja PT.APSI TI</h3>
+		<h3>Katalog Belanja APSI TI</h3>
 		<?php
 		if(isset($_GET['kategori_id'])){
 			$selected_kategori_id = $_GET['kategori_id'];
